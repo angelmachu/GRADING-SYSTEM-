@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GRADING_SYSTEM
 {
-    internal class StudentAccounts // account class
+    internal class StudentAccounts // Account class
     {
         public string studentNumber;
         public string studentPin;

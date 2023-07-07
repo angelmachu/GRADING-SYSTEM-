@@ -9,7 +9,7 @@ namespace GRADING_SYSTEM
 {
     internal class StudentData //ATM class
     {
-        public School School;
+        public School school;
 
         internal static string Name = "Polytechnic University of the Philippines";
 
@@ -17,7 +17,7 @@ namespace GRADING_SYSTEM
 
         {
             List<StudentAccounts> studentRecord = new List<StudentAccounts>();
-            School = new School();
+            school = new School();
 
             StudentAccounts student1 = new StudentAccounts
             {
@@ -41,16 +41,16 @@ namespace GRADING_SYSTEM
             studentRecord.Add(student2);
             studentRecord.Add(student3);
 
-            School.StudentAccounts = studentRecord;
+            school.accountOfStudents = studentRecord;
         }
 
-        public StudentAccounts CheckPin(string pin, string student)
+        public StudentAccounts CheckPin(string studentPin, string studentNumber)
         {
-            foreach (var studentaccount in School.StudentAccounts)
+            foreach (var student in school.accountOfStudents)
             {
-                if (studentaccount.studentPin == pin && studentaccount.studentNumber == student)
+                if (student.studentPin == studentPin && student.studentNumber == studentNumber)
                 {
-                    return studentaccount;
+                    return student;
                 }
             }
 

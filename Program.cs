@@ -13,9 +13,9 @@ namespace IntroToCSharp
 {
     class Program
     {
-        static StudentData studentData;
+        static StudentData students;
 
-        static StudentAccounts studentAccounts;
+        static StudentAccounts accountResult;
 
         static double midtermGrade;
         static double finalGrade;
@@ -27,7 +27,7 @@ namespace IntroToCSharp
 
             bool loop1 = true; // 1st loop
             bool loop2 = true; // 2nd loop
-            bool loop3 = true; // 3rd loop
+            //bool loop3 = true; // 3rd loop
             string subjectChoice = "";
             string gradeChoice = "";
 
@@ -42,10 +42,10 @@ namespace IntroToCSharp
                 Console.WriteLine(" Please Enter Your Student Number: ");
                 string studentNumber = GetStudentAccount();
 
-                Console.WriteLine(" Please Enter Your Student Number: ");
+                Console.WriteLine(" Please Enter Your Student PIN: ");
                 string studentPin = GetStudentAccount();
 
-                studentAccounts = studentData.CheckPin(studentNumber, studentPin);
+                accountResult = students.CheckPin(studentNumber, studentPin);
 
                 if (subjectChoice == "exit")
                 {
@@ -55,7 +55,7 @@ namespace IntroToCSharp
                 {
                     while (loop2)
                     {
-                        while (studentNumber != "0")
+                        while (studentNumber == studentNumber && studentPin == studentPin)
                         {
                             ListSubjects();
 
@@ -68,23 +68,19 @@ namespace IntroToCSharp
                                     loop2 = false;
                                     break;
                                 case "1":
+                                    inputGrade();
+                                    break;
                                 case "2":
+                                    inputGrade();
+                                    break;
                                 case "3":
+                                    inputGrade();
+                                    break;
                                 case "4":
+                                    inputGrade();
+                                    break;
                                 case "5":
-                                    while (loop3)
-                                    {
-                                        gradeChoice = inputGrade();
-                                        switch (gradeChoice)
-                                        {
-                                            case "exit":
-                                                loop1 = false;
-                                                loop2 = false;
-                                                loop3 = false;
-                                                break;
-                                        }
-                                    }
-                                    loop3 = true;
+                                    inputGrade();
                                     break;
                                 default: // for loop2 cases
                                     Console.WriteLine("Invalid input, choose between number 1 - 5 or type \"exit\" to stop the program");
@@ -119,7 +115,7 @@ namespace IntroToCSharp
                 double midtermGrade = double.Parse(Console.ReadLine());
                 Console.WriteLine();
 
-                Console.Write("Enter your Midterm Grade: ");
+                Console.Write("Enter your Final Grade: ");
                 double finalGrade = double.Parse(Console.ReadLine());
                 Console.WriteLine();
 
@@ -129,55 +125,77 @@ namespace IntroToCSharp
 
                 if (average >= 97 && average <= 100)
                 {
-                    Console.WriteLine(" Excellent, Your Grade is 1.0 ");
+                    Console.WriteLine(" Excellent, Your Final Average Grade is 1.0 ");
+                    Console.WriteLine("");
+                    Console.WriteLine("Enter any key to choose another subject or type \"exit\" to stop the program ");
                 }
                 else if (average >= 94 && average <= 96)
                 {
-                    Console.WriteLine(" Excellent, Your Grade is 1.25 ");
+                    Console.WriteLine(" Excellent, Your Final Average Grade is 1.25 ");
+                    Console.WriteLine("");
+                    Console.WriteLine("Enter any key to choose another subject or type \"exit\" to stop the program ");
                 }
                 else if (average >= 91 && average <= 93)
                 {
-                    Console.WriteLine(" Very Good, Your Grade is 1.5 ");
+                    Console.WriteLine(" Very Good, Your Final Average Grade is 1.5 ");
+                    Console.WriteLine("");
+                    Console.WriteLine("Enter any key to choose another subject or type \"exit\" to stop the program ");
                 }
                 else if (average >= 88 && average <= 90)
                 {
-                    Console.WriteLine(" Very Good, Your Grade is 1.75 ");
+                    Console.WriteLine(" Very Good, Your Final Average Grade is 1.75 ");
+                    Console.WriteLine("");
+                    Console.WriteLine("Enter any key to choose another subject or type \"exit\" to stop the program ");
                 }
                 else if (average >= 85 && average <= 87)
                 {
-                    Console.WriteLine(" Good, Your Grade is 2.0 ");
+                    Console.WriteLine(" Good, Your Final Average Grade is 2.0 ");
+                    Console.WriteLine("");
+                    Console.WriteLine("Enter any key to choose another subject or type \"exit\" to stop the program ");
                 }
                 else if (average >= 82 && average <= 84)
                 {
-                    Console.WriteLine(" Good, Your Grade is 2.25 ");
+                    Console.WriteLine(" Good, Your Final Average Grade is 2.25 ");
+                    Console.WriteLine("");
+                    Console.WriteLine("Enter any key to choose another subject or type \"exit\" to stop the program ");
                 }
                 else if (average >= 79 && average <= 81)
                 {
-                    Console.WriteLine(" Satisfactory, Your Grade is 2.50 ");
+                    Console.WriteLine(" Satisfactory, Final Average Grade is 2.50 ");
+                    Console.WriteLine("");
+                    Console.WriteLine("Enter any key to choose another subject or type \"exit\" to stop the program ");
                 }
                 else if (average >= 76 && average <= 78)
                 {
-                    Console.WriteLine(" Satisfactory, Your Grade is 2.75 ");
+                    Console.WriteLine(" Satisfactory, Final Average Grade is 2.75 ");
+                    Console.WriteLine("");
+                    Console.WriteLine("Enter any key to choose another subject or type \"exit\" to stop the program ");
                 }
                 else if (average == 75)
                 {
-                    Console.WriteLine(" Passing, Your Grade is 3.0 ");
+                    Console.WriteLine(" Passing, Your Final Average Grade is 3.0 ");
+                    Console.WriteLine("");
+                    Console.WriteLine("Enter any key to choose another subject or type \"exit\" to stop the program ");
                 }
                 else if (average >= 64 && average <= 74)
                 {
-                    Console.WriteLine(" Fail, Your Grade is 5.0 ");
+                    Console.WriteLine(" Fail, Your Final Average Grade is 5.0 ");
+                    Console.WriteLine("");
+                    Console.WriteLine("Enter any key to choose another subject or type \"exit\" to stop the program ");
                 }
                 return Console.ReadLine();
+                
             }
 
             static void CreateStudentData()
             {
-                studentData = new StudentData();
+                students = new StudentData();
             }
             static string GetStudentAccount()
             {
                 Console.Write("Account input > ");
                 return Console.ReadLine();
+                
             }
         }
     }

@@ -9,6 +9,6 @@ namespace GRADING_SYSTEM
     internal class School // Bank class
     {
         public string Name { get; set; }
-        public List<StudentAccounts> StudentAccounts { get; set; }
+        public List<StudentAccounts> accountOfStudents { get; set; }
     }
 }

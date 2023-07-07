@@ -55,7 +55,7 @@ namespace IntroToCSharp
                 {
                     while (loop2)
                     {
-                        while (studentNumber == studentNumber && studentPin == studentPin)
+                        while (studentPin != "0")
                         {
                             ListSubjects();
 
@@ -184,7 +184,7 @@ namespace IntroToCSharp
                     Console.WriteLine("Enter any key to choose another subject or type \"exit\" to stop the program ");
                 }
                 return Console.ReadLine();
-                
+
             }
 
             static void CreateStudentData()
@@ -195,7 +195,7 @@ namespace IntroToCSharp
             {
                 Console.Write("Account input > ");
                 return Console.ReadLine();
-                
+
             }
         }
     }

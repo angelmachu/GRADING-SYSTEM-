@@ -46,14 +46,13 @@ namespace GRADING_SYSTEM
 
         public StudentAccounts CheckPin(string studentPin, string studentNumber)
         {
-            foreach (var student in school.accountOfStudents)
+            foreach (var studentRecord in school.accountOfStudents)
             {
-                if (student.studentPin == studentPin && student.studentNumber == studentNumber)
+                if (studentRecord.studentPin == studentPin && studentRecord.studentNumber == studentNumber)
                 {
-                    return student;
+                    return studentRecord;
                 }
             }
-
             return null;
         }
     }

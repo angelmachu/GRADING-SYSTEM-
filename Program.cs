@@ -158,6 +158,7 @@ namespace IntroToCSharp
                     Console.WriteLine(" Fail, Your Final Average Grade is 5.0 ");
                 }
 
+                Console.WriteLine("");
                 Console.WriteLine("Enter any key to choose another subject ");
                 Console.ReadLine();
             }

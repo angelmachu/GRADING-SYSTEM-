@@ -30,57 +30,59 @@ namespace IntroToCSharp
                 Console.WriteLine("Welcome User! This program will calculate your Grade and its interpretation.");
                 Console.WriteLine();
 
-                Console.Write("Press any key to continue: ");
+                Console.Write("Press any key to continue or type \"exit\" to stop the program : ");
                 subjectChoice = Console.ReadLine();
-
-                Console.WriteLine("Please Enter Your Student Number: ");
-                string studentNumber = GetStudentAccount();
-
-                Console.WriteLine("Please Enter Your Student PIN: ");
-                string studentPin = GetStudentAccount();
-
-                accountResult = students.CheckPin(studentNumber, studentPin);
 
                 if (subjectChoice == "exit")
                 {
+                    Console.WriteLine("");
+                    Console.WriteLine("Exiting Program, Thank you!");
                     loop1 = false;
                 }
                 else
                 {
-                    while (loop2)
-                    {
-                        while (studentPin != "0")
-                        {
-                            if (accountResult != null)
-                            {
-                                ListSubjects();
+                    Console.WriteLine("Please Enter Your Student Number: ");
+                    string studentNumber = GetStudentAccount();
 
-                                studentPin = GetStudentAccount();
-                                switch (studentPin)
-                                {
-                                    case "exit":
-                                        loop1 = false;
-                                        loop2 = false;
-                                        break;
-                                    case "1":
-                                    case "2":
-                                    case "3":
-                                    case "4":
-                                    case "5":
-                                        inputGrade();
-                                        break;
-                                    default: // for loop2 cases
-                                        Console.WriteLine("Invalid input, choose between number 1 - 5 or type \"exit\" to stop the program");
-                                        break;
-                                }
+                    Console.WriteLine("Please Enter Your Student PIN: ");
+                    string studentPin = GetStudentAccount();
+
+                    accountResult = students.CheckPin(studentNumber, studentPin);
+
+                    while (loop2 && studentPin != "0")
+                    {
+                        if (accountResult != null)
+                        {
+                            ListSubjects();
+
+                            studentPin = GetStudentAccount();
+                            switch (studentPin)
+                            {
+                                case "exit":
+                                    Console.WriteLine("");
+                                    Console.WriteLine("Exiting Program, Thank you!");
+                                    loop1 = false;
+                                    loop2 = false;
+                                    break;
+                                case "1":
+                                case "2":
+                                case "3":
+                                case "4":
+                                case "5":
+                                    inputGrade();
+                                    break;
+                                default: // for loop2 cases
+                                    Console.WriteLine("Invalid input, choose between numbers 1 - 5 ");
+                                    break;
                             }
-                            loop2 = true;
                         }
                     }
                 }
             }
+        }
 
-            static void ListSubjects()
+
+        static void ListSubjects()
             {
                 List<string> subjectsLists = new List<string>();
 
@@ -91,10 +93,12 @@ namespace IntroToCSharp
                 subjectsLists.Add("3. Programming Logic and Design");
                 subjectsLists.Add("4. Discrete Mathematics");
                 subjectsLists.Add("5. Engineering Data Analysis");
+                subjectsLists.Add("");
+                subjectsLists.Add("Type \"exit\" to stop the program");
 
                 foreach (string ListSubjects in subjectsLists)
                 {
-                    Console.WriteLine(ListSubjects);
+                    Console.WriteLine(ListSubjects);           
                 }
             }
 
@@ -170,4 +174,3 @@ namespace IntroToCSharp
             }
         }
     }
-}

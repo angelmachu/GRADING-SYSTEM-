@@ -33,8 +33,8 @@ namespace GRADING_SYSTEM
 
             StudentAccounts student3 = new StudentAccounts
             {
-                 studentNumber = "000-003",
-                 studentPin = "1111"
+                studentNumber = "000-003",
+                studentPin = "1111"
             };
 
             studentRecord.Add(student1);
@@ -44,16 +44,11 @@ namespace GRADING_SYSTEM
             school.accountOfStudents = studentRecord;
         }
 
-        public StudentAccounts CheckPin(string studentPin, string studentNumber)
+        public StudentAccounts CheckPin(string studentNumber, string pin)
         {
-            foreach (var studentRecord in school.accountOfStudents)
-            {
-                if (studentRecord.studentPin == studentPin && studentRecord.studentNumber == studentNumber)
-                {
-                    return studentRecord;
-                }
-            }
-            return null;
-        }
+            return school.accountOfStudents.FirstOrDefault(studentRecord =>
+                studentRecord.studentNumber == studentNumber && studentRecord.studentPin == pin);
+        }   
     }
 }
+
